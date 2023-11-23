@@ -1,0 +1,20 @@
+SOLID/GRASP
+
+SOLID:
+1.S-Każda klasa realizuję pojedyncze zadanie.
+2.O-Klasy są otwarte na rozszerzanie, a zamknięte na modyfikację.
+3.L-W naszym kodzie nie ma dziedziczenia.
+4.I-Cały program jest podzielony na 4 małe proste interfejsy.
+5.D-W naszym kodzie nie ma dziedziczenia.
+
+GRASP:
+Information Expert (Ekspert)-Funkcja wyszukaj_produkt nie posiada informacji niezbędnych do wykonania, powinna
+znajdować się w klasie lodówka
+Creator (Twórca)-
+Controller (Kontroler)- Nasz projekt nie ma głównego kontrolera w klasie, jest on podzielony na 4 mniejsze klasy.
+Low Coupling (Niskie Sprzężenie)-Jest mało zależności w naszym kodzie, występuje tylko jedno użytkownik-lodówka.
+Polymorphism (Polimorfizm)- Brak dziedziczenia w naszym kodzie.
+Pure Fabrication (Czysty Wymysł)- 
+Indirection (Pośrednictwo)- brak bezpośrenich powiązań
+Protected Variations (Ochrona Zmienności)- w naszym kodzie jest dużo zmiennych prywatnych brak chronionych,
+więszkość zmiennych jest stałych
