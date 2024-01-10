@@ -7,8 +7,11 @@ int wybor;
 Lodowka lodowka_uzytkownika(111);
 int id_uzytkownika = 1;
 int id_produktu = 1;
-string nazwa_produktu;
-Produkt produkt_bufor(id_produktu,id_uzytkownika, "Null");
+string nazwa_produktu, data_waznosci;
+int ilosc;
+Produkt produkt_bufor(id_uzytkownika,0,"",0,"");
+
+
 int main(){
     cout<<"------------------- \n";
     cout<<"Wczytywanie produktow... \n";
@@ -36,8 +39,14 @@ int main(){
             cout<<"Podaj dane produktu: \n";
             cout<<"Podaj nazwe produktu: ";
             cin>>nazwa_produktu;
+            cout<<"Podaj ilosc produktu: ";
+            cin>>ilosc;
+            cout<<"Podaj date_waznosci produktu: ";
+            cin>>data_waznosci;
             produkt_bufor.nazwa = nazwa_produktu;
             produkt_bufor.id_produktu = id_produktu;
+            produkt_bufor.ilosc = ilosc;
+            produkt_bufor.data_waznosci = data_waznosci;
             lodowka_uzytkownika.dodajProdukt(produkt_bufor);
             doZapisu.push_back(produkt_bufor);
             cout<<"\nUdalo sie dodac produkt!";
@@ -45,7 +54,7 @@ int main(){
         break;
 
         case 2: 
-            lodowka_uzytkownika.wyswietlInformacje();
+            lodowka_uzytkownika.wyswietlZawartoscLodowki();
             break;
 
         case 3: 

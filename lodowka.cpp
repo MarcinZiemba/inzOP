@@ -1,16 +1,21 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream> 
+
 class Produkt {
 public:
-    // Pola klasy
     int id_produktu;
     int id_uzytkownika;
     std::string nazwa;
-
+    int ilosc;                // Nowe pole
+    std::string data_waznosci; // Nowe pole
 
     // Konstruktor klasy
-    Produkt(int _id_u, int _id_p, const std::string& _nazwa) : id_produktu(_id_p),id_uzytkownika(_id_u), nazwa(_nazwa) {
+    Produkt(){}
+    
+    Produkt(int _id_u, int _id_p, const std::string& _nazwa,  int _ilosc, const std::string& _data_waznosci)
+        : id_produktu(_id_p), id_uzytkownika(_id_u), nazwa(_nazwa),  ilosc(_ilosc), data_waznosci(_data_waznosci) {
         // Dodatkowe inicjalizacje, jeśli są potrzebne
     }
 
@@ -19,10 +24,12 @@ public:
         std::cout << "ID_uzytkownika: " << id_uzytkownika << "\n";
         std::cout << "ID_produktu: " << id_produktu << "\n";
         std::cout << "Nazwa: " << nazwa << "\n";
-
+        std::cout << "Ilosc: " << ilosc << "\n";
+        std::cout << "Data waznosci: " << data_waznosci << "\n";
     }
-        void zapiszDoStrumienia(std::ostream& strumien) const {
-        strumien << id_uzytkownika << " " << id_produktu << " " << nazwa << "\n";
+
+    void zapiszDoStrumienia(std::ostream& strumien) const {
+        strumien << id_uzytkownika << " " << id_produktu << " " << nazwa << " " << ilosc << " " << data_waznosci << "\n";
     }
 };
 
@@ -48,9 +55,11 @@ std::vector<Produkt> wczytajProduktyZPliku(const std::string& nazwaPliku) {
     if (plik.is_open()) {
         int id_uzytkownika, id_produktu;
         std::string nazwa;
+        int ilosc;
+        std::string data_waznosci;
 
-        while (plik >> id_uzytkownika >> id_produktu >> nazwa) {
-            Produkt produkt(id_uzytkownika, id_produktu, nazwa);
+        while (plik >> id_uzytkownika >> id_produktu >> nazwa >> ilosc >> data_waznosci) {
+            Produkt produkt(id_uzytkownika, id_produktu, nazwa, ilosc, data_waznosci);
             produkty.push_back(produkt);
         }
 
@@ -78,7 +87,7 @@ public:
     }
 
     // Metoda do wyświetlania informacji o lodówce
-    void wyswietlInformacje() const {
+    void wyswietlZawartoscLodowki() const {
         std::cout << "------------------------\n";
         std::cout << "ID Lodowki: " << id_lodowki << "\n";
         std::cout << "Zawartosc lodowki:\n";

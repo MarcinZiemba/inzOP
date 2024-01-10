@@ -1,5 +1,4 @@
-1 1 jasio
-1 2 jula
-1 3 ela
-2 4 zaneta
-1 5 ddd
+1 1 mango 1 2-5-23
+1 2 pomidor 2 3-5-23
+0 3 ogorek 3 3-5-23
+1 4 kakao 1 10-10-2024
